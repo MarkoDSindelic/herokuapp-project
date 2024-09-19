@@ -7,6 +7,6 @@ module.exports = defineConfig({
     },
   },
   env:{
-    URL:'https://the-internet.herokuapp.com/login'
+    URL:'https://the-internet.herokuapp.com/'
   }
 });

@@ -1,22 +1,20 @@
-import { loginPage } from "../../pages/loginPage"
+import { LoginPage } from "../../pages/loginPage"
 import logiData from "../../fixtures/loginData.json"
 import { SecurePage } from "../../pages/securePage"
 
 const securePageObjs = new SecurePage()
-const loginObj = new loginPage()
+const loginObj = new LoginPage()
 
-describe('test automation', ()=> {
+describe('login test automation', ()=> {
 
     beforeEach(() => {
-        cy.visit(Cypress.env('URL'))
-        cy.log("I run now!")
+        cy.visit(Cypress.env('URL') + '/login')
     });
     
     
 
     it('valid login test', ()=> {
 
-        //loginObj.openURL()
         loginObj.enterUsername(logiData.username)
         loginObj.enterPassword(logiData.password)
         loginObj.clickLogin()
@@ -25,13 +23,12 @@ describe('test automation', ()=> {
 
         securePageObjs.clickLogoutBtn()
 
-        // need to find a way to change this line in all the tests
+        // needs refactoring
         cy.get('#flash').contains('You logged out of the secure area!')
     })
 
     it('invalid username login test', () => {
         
-        //loginObj.openURL()
         loginObj.enterUsername(logiData.invalidUsername)
         loginObj.enterPassword(logiData.password)
         loginObj.clickLogin()
@@ -42,7 +39,6 @@ describe('test automation', ()=> {
 
     it('invalid password login test', () => {
         
-        //loginObj.openURL()
         loginObj.enterUsername(logiData.username)
         loginObj.enterPassword(logiData.invalidPassword)
         loginObj.clickLogin()
@@ -53,8 +49,7 @@ describe('test automation', ()=> {
 
     it('empty username login test', () => {
         
-        //loginObj.openURL()
-        loginObj.enterUsername(" ")
+        loginObj.enterUsername(logiData.emptyUsername)
         loginObj.enterPassword(logiData.password)
         loginObj.clickLogin()
 
@@ -64,9 +59,8 @@ describe('test automation', ()=> {
 
     it('empty password login test', () => {
         
-        //loginObj.openURL()
         loginObj.enterUsername(logiData.username)
-        loginObj.enterPassword(" ")
+        loginObj.enterPassword(logiData.emptyPassword)
         loginObj.clickLogin()
 
         cy.get('#flash').contains('Your password is invalid!')

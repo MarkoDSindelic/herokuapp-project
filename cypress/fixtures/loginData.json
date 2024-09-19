@@ -2,5 +2,7 @@
     "username":"tomsmith",
     "password":"SuperSecretPassword!",
     "invalidUsername": "someusername",
-    "invalidPassword": "somepassword"
+    "invalidPassword": "somepassword",
+    "emptyUsername": " ",
+    "emptyPassword": " "
 }

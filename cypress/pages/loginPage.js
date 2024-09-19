@@ -1,4 +1,4 @@
-export class loginPage{
+export class LoginPage{
 
    
     webElements={
@@ -9,9 +9,9 @@ export class loginPage{
         
     } 
 
-    openURL(){
-        cy.visit(Cypress.env('URL'))
-    }
+    // openURL(){
+    //     cy.visit(Cypress.env('URL'))
+    // }
 
     enterUsername(username){
         this.webElements.username().type(username)
