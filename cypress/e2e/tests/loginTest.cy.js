@@ -9,14 +9,12 @@ describe('test automation', ()=> {
 
     beforeEach(() => {
         cy.visit(Cypress.env('URL'))
-        cy.log("I run now!")
     });
     
     
 
     it('valid login test', ()=> {
 
-        //loginObj.openURL()
         loginObj.enterUsername(logiData.username)
         loginObj.enterPassword(logiData.password)
         loginObj.clickLogin()
@@ -25,7 +23,7 @@ describe('test automation', ()=> {
 
         securePageObjs.clickLogoutBtn()
 
-        // need to find a way to change this line in all the tests
+        // need to find a better way to do this
         cy.get('#flash').contains('You logged out of the secure area!')
     })
 
