@@ -8,8 +8,7 @@ const loginObj = new LoginPage()
 describe('login test automation', ()=> {
 
     beforeEach(() => {
-        cy.visit(Cypress.env('URL'))
-        cy.log("I run now!")
+        cy.visit(Cypress.env('URL')+'login')
     });
     
     
