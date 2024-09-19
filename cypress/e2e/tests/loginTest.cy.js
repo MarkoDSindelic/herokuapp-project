@@ -8,7 +8,8 @@ const loginObj = new LoginPage()
 describe('login test automation', ()=> {
 
     beforeEach(() => {
-        cy.visit(Cypress.env('URL') + '/login')
+        cy.visit(Cypress.env('URL'))
+        cy.log("I run now!")
     });
     
     
@@ -23,7 +24,7 @@ describe('login test automation', ()=> {
 
         securePageObjs.clickLogoutBtn()
 
-        // needs refactoring
+        // need to find a way to change this line in all the tests
         cy.get('#flash').contains('You logged out of the secure area!')
     })
 
