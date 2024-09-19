@@ -24,7 +24,7 @@ describe('login test automation', ()=> {
 
         securePageObjs.clickLogoutBtn()
 
-        // need to find a way to change this line in all the tests
+        // needs refactoring
         cy.get('#flash').contains('You logged out of the secure area!')
     })
 
