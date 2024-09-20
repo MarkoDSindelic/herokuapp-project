@@ -1,5 +1,9 @@
-import { CheckboxPage } from "../../pages/checkboxesPage";
-const checkboxPageObj = new CheckboxPage()
+
+import { BasePage } from "../../pages/basePage";
+
+//Can you avoid this?
+const basePage = new BasePage()
+
 
 describe ('checkbox test', ()=> {
 
@@ -10,23 +14,26 @@ describe ('checkbox test', ()=> {
      
 
     it('check checkbox1 ', () => {
-        checkboxPageObj.clickCheckboxOne()
-        checkboxPageObj.webElements.checkbox1().should('be.checked')
+
+        basePage.pages.checkboxPage.clickCheckboxOne()
+        basePage.pages.checkboxPage.webElements.checkbox1().should('be.checked')
+ 
     });
 
     it('uncheck checkbox1', () => {
-        checkboxPageObj.unclickCheckboxOne()
-        checkboxPageObj.webElements.checkbox1().should('not.be.checked')
+        basePage.pages.checkboxPage.unclickCheckboxOne()
+        basePage.pages.checkboxPage.webElements.checkbox1().should('not.be.checked')
+
     });
 
     it('uncheck checkbox2', () => {
-        checkboxPageObj.unclickCheckboxTwo()
-        checkboxPageObj.webElements.checkbox2().should('not.be.checked')
+        basePage.pages.checkboxPage.unclickCheckboxTwo()
+        basePage.pages.checkboxPage.webElements.checkbox2().should('not.be.checked')
     });
 
     it('check checkbox2 ', () => {
-        checkboxPageObj.clickCheckboxTwo()
-        checkboxPageObj.webElements.checkbox2().should('be.checked')
+        basePage.pages.checkboxPage.clickCheckboxTwo()
+        basePage.pages.checkboxPage.webElements.checkbox2().should('be.checked')
     });
 
 } )

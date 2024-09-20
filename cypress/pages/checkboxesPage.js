@@ -1,7 +1,8 @@
+
 export class CheckboxPage {
 
     webElements = {
-        checkbox: () => cy.get('input[type=checkbox]'),
+        
         checkbox1: () => cy.get('#checkboxes > :nth-child(1)'),
         checkbox2: () => cy.get('#checkboxes > :nth-child(3)')
         
