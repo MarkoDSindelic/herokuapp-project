@@ -13,10 +13,12 @@ describe('login test automation', ()=> {
 
     it('valid login test', ()=> {
 
-        cy.fixture('validLoginData').then( value => {
-            basePage.pages.loginPage.enterUsername(value.username)
-            basePage.pages.loginPage.enterPassword(value.password)
-        })
+        
+        // cy.fixture('validLoginData').then( value => {
+        //     basePage.pages.loginPage.enterUsername(value.username)
+        //     basePage.pages.loginPage.enterPassword(value.password)
+        // })
+        cy.login(basePage.pages.loginPage, basePage.pages.loginPage)
         basePage.pages.loginPage.clickLogin()
         
         basePage.pages.securePage.webElements.loginMsg().should('contain', 'You logged into a secure area!')

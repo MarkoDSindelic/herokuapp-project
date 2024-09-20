@@ -1,5 +1,6 @@
+import { BasePage } from "./basePage"
 
-export class CheckboxPage {
+export class CheckboxPage{
 
     webElements = {
         
@@ -8,6 +9,14 @@ export class CheckboxPage {
         
     }
 
+    // testing getting components
+    // checkbox(){
+    //     return cy.get('#checkboxes > :nth-child(1)')
+    // }
+
+    // doSomething(){
+    //     this.checkbox().click()
+    // }
 
 
     clickCheckboxOne(){

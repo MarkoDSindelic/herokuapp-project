@@ -23,3 +23,12 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('login', (usernameField, passwordField)=> {
+
+    cy.fixture('validLoginData').then( value => {
+        usernameField.enterUsername(value.username)
+        passwordField.enterPassword(value.password)
+
+    })
+})

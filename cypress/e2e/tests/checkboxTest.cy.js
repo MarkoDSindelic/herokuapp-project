@@ -35,4 +35,8 @@ describe ('checkbox test', ()=> {
         basePage.pages.checkboxPage.webElements.checkbox2().should('be.checked')
     });
 
+    // it.only('test test', () => {
+    //     basePage.pages.checkboxPage.doSomething()
+    // });
+
 } )
