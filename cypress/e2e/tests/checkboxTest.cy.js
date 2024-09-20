@@ -12,7 +12,6 @@ describe ('checkbox test', ()=> {
     });
 
      
-
     it('check checkbox1 ', () => {
 
         basePage.pages.checkboxPage.clickCheckboxOne()
