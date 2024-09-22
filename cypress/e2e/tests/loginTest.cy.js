@@ -1,41 +1,43 @@
-
-import { BasePage } from "../../pages/basePage";
-
-const basePage = new BasePage()
+import { loginPage } from "../../pages/loginPage";
+import { securePage } from "../../pages/securePage";
 
 describe('login test automation', ()=> {
 
     beforeEach(() => {
-        cy.visit(Cypress.env('URL')+'login')
+        loginPage.visitPage('login')
     });
     
     
 
     it('valid login test', ()=> {
 
+        cy.fixture('validLoginData').then( value => {
+            loginPage.enterUsername(value.username)
+            loginPage.enterPassword(value.password)
+        })
+
+        loginPage.clickLogin()
+
+        // cy.login(loginPage, loginPage)
+        //     loginPage.clickLogin()
         
-        // cy.fixture('validLoginData').then( value => {
-        //     basePage.pages.loginPage.enterUsername(value.username)
-        //     basePage.pages.loginPage.enterPassword(value.password)
-        // })
-        cy.login(basePage.pages.loginPage, basePage.pages.loginPage)
-        basePage.pages.loginPage.clickLogin()
-        
-        basePage.pages.securePage.webElements.loginMsg().should('contain', 'You logged into a secure area!')
+        securePage.loginMsg().should('contain', 'You logged into a secure area!')
+        securePage.clickLogoutBtn()
+        cy.get('#flash').should('contain','You logged out of the secure area!')
 
     })
 
     it('invalid username login test', () => {
         
         cy.fixture('invalidLoginData').then( value => {
-            basePage.pages.loginPage.enterUsername(value.username)
+            loginPage.enterUsername(value.username)
         })
 
         cy.fixture('validLoginData').then( value => {
-            basePage.pages.loginPage.enterPassword(value.password)
+            loginPage.enterPassword(value.password)
         })
         
-        basePage.pages.loginPage.clickLogin()
+         loginPage.clickLogin()
 
         cy.get('#flash').should('contain','Your username is invalid!')
         
@@ -44,14 +46,14 @@ describe('login test automation', ()=> {
     it('invalid password login test', () => {
 
         cy.fixture('validLoginData').then(value => {
-            basePage.pages.loginPage.enterUsername(value.username)
+            loginPage.enterUsername(value.username)
         })
 
         cy.fixture('invalidLoginData').then( value => {
-            basePage.pages.loginPage.enterPassword(value.password)
+           loginPage.enterPassword(value.password)
         })
         
-        basePage.pages.loginPage.clickLogin()
+        loginPage.clickLogin()
 
         cy.get('#flash').should('contain','Your password is invalid!')
         
@@ -60,10 +62,10 @@ describe('login test automation', ()=> {
     it('empty username login test', () => {
         
         cy.fixture('validLoginData').then( value => {
-            basePage.pages.loginPage.enterPassword(value.password)
+            loginPage.enterPassword(value.password)
         })
         
-        basePage.pages.loginPage.clickLogin()
+        loginPage.clickLogin()
 
         cy.get('#flash').contains('Your username is invalid!')
         
@@ -72,10 +74,10 @@ describe('login test automation', ()=> {
     it('empty password login test', () => {
         
         cy.fixture('validLoginData').then(value => {
-            basePage.pages.loginPage.enterUsername(value.username)
+            loginPage.enterUsername(value.username)
         })
 
-        basePage.pages.loginPage.clickLogin()
+        loginPage.clickLogin()
 
         cy.get('#flash').contains('Your password is invalid!')
         

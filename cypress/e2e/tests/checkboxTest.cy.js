@@ -1,42 +1,37 @@
 
-import { BasePage } from "../../pages/basePage";
-
-//Can you avoid this? Yes!
-const basePage = new BasePage()
+import { checkboxPage } from "../../pages/checkboxesPage";
 
 
 describe ('checkbox test', ()=> {
 
     beforeEach(() => {
-        cy.visit(Cypress.env('URL') + 'checkboxes')
+        //cy.visit(Cypress.env('URL') + 'checkboxes')
+        checkboxPage.visitPage('checkboxes')
     });
 
      
     it('check checkbox1 ', () => {
 
-        basePage.pages.checkboxPage.clickCheckboxOne()
-        basePage.pages.checkboxPage.webElements.checkbox1().should('be.checked')
+        checkboxPage.clickCheckboxOne()
+        checkboxPage.checkboxOne().should('be.checked')
  
     });
 
     it('uncheck checkbox1', () => {
-        basePage.pages.checkboxPage.unclickCheckboxOne()
-        basePage.pages.checkboxPage.webElements.checkbox1().should('not.be.checked')
+        checkboxPage.unclickCheckboxOne()
+        checkboxPage.checkboxOne().should('not.be.checked')
 
     });
 
     it('uncheck checkbox2', () => {
-        basePage.pages.checkboxPage.unclickCheckboxTwo()
-        basePage.pages.checkboxPage.webElements.checkbox2().should('not.be.checked')
+        checkboxPage.unclickCheckboxTwo()
+        checkboxPage.checkboxTwo().should('not.be.checked')
     });
 
     it('check checkbox2 ', () => {
-        basePage.pages.checkboxPage.clickCheckboxTwo()
-        basePage.pages.checkboxPage.webElements.checkbox2().should('be.checked')
+        checkboxPage.clickCheckboxTwo()
+        checkboxPage.checkboxTwo().should('be.checked')
     });
 
-    // it.only('test test', () => {
-    //     basePage.pages.checkboxPage.doSomething()
-    // });
 
 } )

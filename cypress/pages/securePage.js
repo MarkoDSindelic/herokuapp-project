@@ -1,4 +1,6 @@
-export class SecurePage{
+import { BasePage } from "./basePage"
+
+class SecurePage extends BasePage {
 
     webElements = {
 
@@ -6,6 +8,17 @@ export class SecurePage{
         logoutBtn: () => cy.contains('Logout')
 
     }
+    /* Get web elements */
+
+    //login message
+    loginMsg(){
+        return cy.get('#flash')
+    }
+
+    logoutBtn(){
+        return cy.contains('Logout')
+    }
+
 
     clickLogoutBtn(){
 
@@ -13,3 +26,5 @@ export class SecurePage{
     }
 
 }
+
+export const securePage = new SecurePage()

@@ -1,38 +1,39 @@
 import { BasePage } from "./basePage"
 
-export class CheckboxPage {
+export class CheckboxPage extends BasePage {
 
-    webElements = {
-        
-        checkbox1: () => cy.get('#checkboxes > :nth-child(1)'),
-        checkbox2: () => cy.get('#checkboxes > :nth-child(3)')
-        
+  
+    /* Get web elements */
+
+    //get first checkbox
+    checkboxOne(){
+        return cy.get('#checkboxes > :nth-child(1)')
     }
 
-    // testing getting components
-    // checkbox(){
-    //     return cy.get('#checkboxes > :nth-child(1)')
-    // }
+    //get second checkbox
+    checkboxTwo(){
+        return cy.get('#checkboxes > :nth-child(3)')
+    }
 
-    // doSomething(){
-    //     this.checkbox().click()
-    // }
 
+    //interact with elements
 
     clickCheckboxOne(){
-        this.webElements.checkbox1().check()
+        this.checkboxOne().check()
     }
 
     unclickCheckboxOne(){
-        this.webElements.checkbox1().uncheck()
+       this.checkboxOne().uncheck()
     }
 
      clickCheckboxTwo(){
-        this.webElements.checkbox2().check()
+        this.checkboxTwo().check()
      }
 
      unclickCheckboxTwo(){
-        this.webElements.checkbox2().uncheck()
+        this.checkboxTwo().uncheck()
     }
 
 }
+
+export const checkboxPage = new CheckboxPage()

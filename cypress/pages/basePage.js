@@ -1,15 +1,8 @@
-import { CheckboxPage } from "./checkboxesPage";
-import { LoginPage } from "./loginPage";
-import { SecurePage } from "./securePage";
+ export class BasePage{
 
-export class BasePage{
-
-
-    pages = {
-
-        loginPage: new LoginPage(),
-        checkboxPage: new CheckboxPage(),
-        securePage: new SecurePage(),
-
+    visitPage(value){
+        cy.visit(Cypress.env('URL') + `${value}`)
     }
+    
 }
+export const basePage = new BasePage()
