@@ -5,8 +5,9 @@ import { checkboxPage } from "../../pages/checkboxesPage";
 describe ('checkbox test', ()=> {
 
     beforeEach(() => {
-        //cy.visit(Cypress.env('URL') + 'checkboxes')
+
         checkboxPage.visitPage('checkboxes')
+
     });
 
      
