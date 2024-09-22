@@ -1,4 +1,4 @@
-name: End-to-end test
+name: test runner
 on: push
 jobs:
   cypress-run:
@@ -9,3 +9,16 @@ jobs:
 
       - name: Cypress run
         uses: cypress-io/github-action@v5
+
+      - name: Generate Allure Report
+        run: | 
+          npm install -g allure-commandline
+          allure generate allure-results -o allure-report --clean
+
+      - name: Deploy Allure Report to Github Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{secrets.GITHUB_TOKEN}}
+          publish_dir: ./allure-report
+          publish_branch: gh-pages
+          keep_files: false

@@ -4,6 +4,7 @@ import { SecurePage } from "./securePage";
 
 export class BasePage{
 
+
     pages = {
 
         loginPage: new LoginPage(),

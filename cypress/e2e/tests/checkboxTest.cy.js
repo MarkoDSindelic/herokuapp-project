@@ -1,7 +1,7 @@
 
 import { BasePage } from "../../pages/basePage";
 
-//Can you avoid this?
+//Can you avoid this? Yes!
 const basePage = new BasePage()
 
 

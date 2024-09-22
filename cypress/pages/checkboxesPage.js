@@ -1,6 +1,6 @@
 import { BasePage } from "./basePage"
 
-export class CheckboxPage{
+export class CheckboxPage {
 
     webElements = {
         
