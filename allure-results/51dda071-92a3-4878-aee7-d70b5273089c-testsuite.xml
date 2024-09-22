@@ -1,0 +1,39 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1726967279366' stop='1726967284021'>
+    <name>checkbox test</name>
+    <title>checkbox test</title>
+    <test-cases>
+        <test-case start='1726967279366' status='passed' stop='1726967282960'>
+            <name>check checkbox1 </name>
+            <title>check checkbox1 </title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1726967282975' status='passed' stop='1726967283313'>
+            <name>uncheck checkbox1</name>
+            <title>uncheck checkbox1</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1726967283325' status='passed' stop='1726967283701'>
+            <name>uncheck checkbox2</name>
+            <title>uncheck checkbox2</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1726967283712' status='passed' stop='1726967284021'>
+            <name>check checkbox2 </name>
+            <title>check checkbox2 </title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>
