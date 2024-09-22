@@ -1,23 +1,37 @@
-import { CheckboxPage } from "../../pages/checkboxesPage";
-const checkboxPageObj = new CheckboxPage()
+
+import { checkboxPage } from "../../pages/checkboxesPage";
+
 
 describe ('checkbox test', ()=> {
 
     beforeEach(() => {
-        cy.visit(Cypress.env('URL') + 'checkboxes')
+
+        checkboxPage.visitPage('checkboxes')
+
     });
 
-    
-    
-    
-    it('checkbox click', () => {
-        checkboxPageObj.clickCheckbox()
-        checkboxPageObj.webElements.checkbox().should('be.checked')
+     
+    it('check checkbox1 ', () => {
+
+        checkboxPage.clickCheckboxOne()
+        checkboxPage.checkboxOne().should('be.checked')
+ 
     });
 
-    it('checkbox unclick', () => {
-        checkboxPageObj.unclickCheckbox()
-        checkboxPageObj.webElements.checkbox().should('not.be.checked')
+    it('uncheck checkbox1', () => {
+        checkboxPage.unclickCheckboxOne()
+        checkboxPage.checkboxOne().should('not.be.checked')
+
+    });
+
+    it('uncheck checkbox2', () => {
+        checkboxPage.unclickCheckboxTwo()
+        checkboxPage.checkboxTwo().should('not.be.checked')
+    });
+
+    it('check checkbox2 ', () => {
+        checkboxPage.clickCheckboxTwo()
+        checkboxPage.checkboxTwo().should('be.checked')
     });
 
 

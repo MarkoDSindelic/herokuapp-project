@@ -1,5 +1,9 @@
 {
   "devDependencies": {
     "cypress": "^13.14.2"
+  },
+  "dependencies": {
+    "allure-commandline": "^2.30.0",
+    "mocha-allure-reporter": "^1.4.0"
   }
 }

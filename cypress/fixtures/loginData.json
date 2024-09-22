@@ -1,8 +1,0 @@
-{
-    "username":"tomsmith",
-    "password":"SuperSecretPassword!",
-    "invalidUsername": "someusername",
-    "invalidPassword": "somepassword",
-    "emptyUsername": " ",
-    "emptyPassword": " "
-}
