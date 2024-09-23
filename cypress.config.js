@@ -9,5 +9,9 @@ module.exports = defineConfig({
   },
   env:{
     URL:'https://the-internet.herokuapp.com/'
+  },
+  retries: {
+    runMode: 2,
+    openMode: 1
   }
 });
