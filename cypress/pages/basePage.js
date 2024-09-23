@@ -4,5 +4,6 @@
         cy.visit(Cypress.env('URL') + `${value}`)
     }
     
+    
 }
 export const basePage = new BasePage()

@@ -3,7 +3,7 @@ import { BasePage } from "./basePage"
 export class CheckboxPage extends BasePage {
 
   
-    /* Get web elements */
+    /* --- Get web elements --- */
 
     //get first checkbox
     checkboxOne(){
@@ -15,24 +15,29 @@ export class CheckboxPage extends BasePage {
         return cy.get('#checkboxes > :nth-child(3)')
     }
 
+     /* --- Interact with elements --- */
 
-    //interact with elements
-
-    clickCheckboxOne(){
-        this.checkboxOne().check()
+    //check checkbox
+    checkCheckbox(num){
+        if (num == 1) {
+            this.checkboxOne().check()
+        }
+        if(num == 2) {
+            this.checkboxTwo().check()
+        }
     }
 
-    unclickCheckboxOne(){
-       this.checkboxOne().uncheck()
+    //uncheck checkbox 
+    uncheckCheckbox(num){
+        if (num == 1) {
+            this.checkboxOne().uncheck()
+        }
+        if(num == 2) {
+            this.checkboxTwo().uncheck()
+        }
     }
 
-     clickCheckboxTwo(){
-        this.checkboxTwo().check()
-     }
-
-     unclickCheckboxTwo(){
-        this.checkboxTwo().uncheck()
-    }
+   
 
 }
 

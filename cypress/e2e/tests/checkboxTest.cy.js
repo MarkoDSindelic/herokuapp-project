@@ -11,26 +11,26 @@ describe ('checkbox test', ()=> {
     });
 
      
-    it('check checkbox1 ', () => {
+    it('check checkbox 1 ', () => {
 
-        checkboxPage.clickCheckboxOne()
+        checkboxPage.checkCheckbox(1)
         checkboxPage.checkboxOne().should('be.checked')
  
     });
 
-    it('uncheck checkbox1', () => {
-        checkboxPage.unclickCheckboxOne()
+    it('uncheck checkbox 1', () => {
+        checkboxPage.uncheckCheckbox(1)
         checkboxPage.checkboxOne().should('not.be.checked')
 
     });
 
-    it('uncheck checkbox2', () => {
-        checkboxPage.unclickCheckboxTwo()
+    it('uncheck checkbox 2', () => {
+        checkboxPage.uncheckCheckbox(2)
         checkboxPage.checkboxTwo().should('not.be.checked')
     });
 
-    it('check checkbox2 ', () => {
-        checkboxPage.clickCheckboxTwo()
+    it('check checkbox 2 ', () => {
+        checkboxPage.checkCheckbox(2)
         checkboxPage.checkboxTwo().should('be.checked')
     });
 

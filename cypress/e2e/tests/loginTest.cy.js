@@ -10,14 +10,15 @@ describe('login test automation', ()=> {
     
 
     it('valid login test', ()=> {
+        
+        /* cy.fixture('validLoginData').then( value => {
+             loginPage.enterUsername(value.username)
+            loginPage.enterPassword(value.password)
+         })
 
-        // cy.fixture('validLoginData').then( value => {
-        //     loginPage.enterUsername(value.username)
-        //     loginPage.enterPassword(value.password)
-        // })
-
-        // loginPage.clickLogin()
-
+         loginPage.clickLogin() */
+        
+        //custom login command 
         cy.login(loginPage, loginPage.loginBtn())
         
         
@@ -25,7 +26,7 @@ describe('login test automation', ()=> {
         securePage.clickLogoutBtn()
         
         cy.get('#flash').should('contain','You logged out of the secure area!')
-
+        
     })
 
     it('invalid username login test', () => {
