@@ -24,11 +24,11 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-Cypress.Commands.add('login', (obj, btn)=> {
-
-    cy.fixture('validLoginData').then( value => {
-        obj.enterUsername(value.username)
-        obj.enterPassword(value.password)
-    })
-    btn.click()
-})
+Cypress.Commands.add("login", (username, password) => {
+  cy.session([username, password], () => {
+    cy.visit(Cypress.env("URL") + "login");
+    cy.get("#username").clear().type(username);
+    cy.get("#password").clear().type(password);
+    cy.get("button.radius").click();
+  });
+});

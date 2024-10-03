@@ -2,12 +2,6 @@ import { BasePage } from "./basePage"
 
 class SecurePage extends BasePage {
 
-    webElements = {
-
-        loginMsg: () => cy.get('#flash'),
-        logoutBtn: () => cy.contains('Logout')
-
-    }
     /* Get web elements */
 
     //login message
@@ -15,11 +9,12 @@ class SecurePage extends BasePage {
         return cy.get('#flash')
     }
 
+    //logout button
     logoutBtn(){
         return cy.contains('Logout')
     }
 
-
+    /* securePage Methods */
     clickLogoutBtn(){
 
         this.webElements.logoutBtn().click()

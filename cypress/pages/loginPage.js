@@ -1,49 +1,36 @@
-import { BasePage } from "./basePage"
+import { BasePage } from "./basePage";
 
 class LoginPage extends BasePage {
+  /*  Getting the web elements */
 
-   
-    // webElements={
+  //get username field
+  usernameField() {
+    return cy.get("#username");
+  }
 
-    //     username: ()=> cy.get('#username'),
-    //     password: ()=> cy.get('#password'),
-    //     loginBtn: () => cy.get('button.radius'),
-        
-    // } 
+  //get password field
+  passwordField() {
+    return cy.get("#password");
+  }
 
-    /*  Getting the web elements */
+  //get login button
+  loginBtn() {
+    return cy.get("button.radius");
+  }
 
-    //get username field
-    usernameField(){
-        return cy.get('#username')
-    }
+  /* LoginPage methods */
 
-    //get password field
-    passwordField(){
-        return cy.get('#password')
-    }
+  enterUsername(username) {
+    this.usernameField().clear().type(username);
+  }
 
-    //get login button
-    loginBtn(){
-        return cy.get('button.radius')
-    }
-    
+  enterPassword(password) {
+    this.passwordField().clear().type(password);
+  }
 
-
-    /* Defining LoginPage methods */
-
-    enterUsername(username){
-        this.usernameField().type(username)
-    }
-
-    enterPassword(password){
-        this.passwordField().type(password)
-    }
-
-    clickLogin(){
-        this.loginBtn().click()
-    }
-
+  clickLogin() {
+    this.loginBtn().click();
+  }
 }
 
-export const loginPage = new LoginPage()
+export const loginPage = new LoginPage();
